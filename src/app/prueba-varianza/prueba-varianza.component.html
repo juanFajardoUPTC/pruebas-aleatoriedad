@@ -1,0 +1,97 @@
+
+<div class="d-inline-flex p-2 flex-column">
+  <div class="d-flex flex-row">
+
+    <h4>Ingrese los parametros iniciales</h4>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Aceptación</span>
+      </div>
+      <input type="text" class="form-control" placeholder="ej: 95" aria-describedby="basic-addon1" [(ngModel)]="aceptacion">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Alfa (%)</span>
+      </div>
+      <input type="text" class="form-control" placeholder="ej: 5" aria-describedby="basic-addon1" [(ngModel)]="alfa">
+    </div>
+  </div>
+  <br>
+  <div class="d-flex flex-row justify-content-center">
+    <button type="button" class="btn btn-primary btn-lg btn-block" (click)="generarValidacion()">Validación</button>
+  </div>
+  <br>
+
+  <div *ngIf="validando" class="d-flex flex-row justify-content-center">
+    <div class="d-inline-flex p-2 flex-column">
+      <h4>Resultados</h4>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">n</span>
+        </div>
+        <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="n" readonly>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Promedio (R)</span>
+        </div>
+        <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="promedio" readonly>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Varianza</span>
+        </div>
+        <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="varianza" readonly>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Alfa/2</span>
+        </div>
+        <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="alfaDiv" readonly>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">1-(Alfa/2)</span>
+        </div>
+        <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="opVar" readonly>
+      </div>
+      <br>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">X2 Alfa/2</span>
+        </div>
+        <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="xalfaDiv" readonly>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">X2 1-(Alfa/2)</span>
+        </div>
+        <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="xopVar" readonly>
+      </div>
+      <br>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">LI</span>
+        </div>
+        <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="li" readonly>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">LS</span>
+        </div>
+        <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="ls" readonly>
+      </div>
+      <br>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Cumple</span>
+        </div>
+        <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="cumple" readonly>
+      </div>
+    </div>
+    </div>
+</div>
+<div class="d-inline-flex p-2">
+
+  <app-lista-numeros [listaNumeros]="listaNumeros"></app-lista-numeros>
+</div>

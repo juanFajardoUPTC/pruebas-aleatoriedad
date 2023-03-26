@@ -1,0 +1,106 @@
+
+<div class="d-flex p-2 flex-column">
+  <div class="d-flex flex-row">
+
+    <h4>Ingrese los parametros iniciales</h4>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">DMAXP</span>
+      </div>
+      <input type="number" class="form-control" placeholder="ej: 95" aria-describedby="basic-addon1" [(ngModel)]="dmaxp">
+    </div>
+  </div>
+  <br>
+  <div class="d-flex flex-row justify-content-center">
+    <button type="button" class="btn btn-primary btn-lg btn-block" (click)="generarValidacion()">Validación</button>
+  </div>
+  <br>
+
+  <div *ngIf="validando" class="d-flex flex-row justify-content-center">
+    <div class="d-inline-flex p-2 flex-column">
+      <h4>Resultados</h4>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">n</span>
+        </div>
+        <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="n" readonly>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Promedio (R)</span>
+        </div>
+        <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="promedio" readonly>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Minimo</span>
+        </div>
+        <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="minimo" readonly>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Maximo</span>
+        </div>
+        <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="maximo" readonly>
+      </div>
+      <br>
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Inicial</th>
+            <th scope="col">Final</th>
+            <th scope="col">Frec. Obtenida</th>
+            <th scope="col">Correlacion - O(i)</th>
+            <th scope="col">F.Obt.A</th>
+            <th scope="col">F.Obt - S(x)</th>
+            <th scope="col">F.Esp.A</th>
+            <th scope="col">P.Esp - F(x)</th>
+            <th scope="col">Dif</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of tabla">
+            <th scope="row">{{row[0]}}</th>
+
+            <td>{{row[1]}}</td>
+            <td>{{row[2]}}</td>
+            <td>{{row[3]}}</td>
+            <td>{{row[4]}}</td>
+            <td>{{row[5]}}</td>
+            <td>{{row[6]}}</td>
+            <td>{{row[7]}}</td>
+            <td>{{row[8]}}</td>
+            <td>{{row[9]}}</td>
+            <td>{{row[10]}}</td>
+          </tr>
+          <tr>
+        </tbody>
+      </table>
+      <br>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">DMAX</span>
+        </div>
+        <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="dmax" readonly>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">DMAXP</span>
+        </div>
+        <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="dmaxp" readonly>
+      </div>
+      <br>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Cumple</span>
+        </div>
+        <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="cumple" readonly>
+      </div>
+    </div>
+    </div>
+</div>
+<div class="d-flex justify-content-end">
+
+  <app-lista-numeros [listaNumeros]="listaNumeros"></app-lista-numeros>
+</div>

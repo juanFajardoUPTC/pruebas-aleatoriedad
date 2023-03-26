@@ -1,0 +1,39 @@
+<div class="container">
+  <header class="d-flex flex-wrap justify-content-center text-center py-3 mb-4 border-bottom">
+      <span class="fs-1 ">Simulación de Computadores - Pruebas de Aleatoriedad</span>
+  </header>
+</div>
+
+  <div class="p-5 text-center bg-light">
+    <h1 class="mb-3">Seleccione un archivo de Excel</h1>
+    <div class="input-group">
+      <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload"
+      (change)="ReadExcel($event)">
+    </div>
+  </div>
+<br>
+
+<ng-container *ngIf="arrayData.length !== 0">
+
+  <div class="p-5 text-center bg-light">
+
+    <h1 class="mb-3">Seleccione el tipo de prueba</h1>
+
+    <select class="form-control col-lg-8" #selectedValue (change)="asignarTipo(selectedValue.value)">
+      <option *ngFor="let prueba of tiposPruebas" [ngValue]="prueba">{{prueba}}</option>
+  </select>
+
+  </div>
+
+  <container-element [ngSwitch]="tipoSeleccionado">
+
+    <app-prueba-medias [listaNumeros]="arrayData" *ngSwitchCase="'Prueba de Medias'"></app-prueba-medias>
+    <app-prueba-varianza [listaNumeros]="arrayData" *ngSwitchCase="'Prueba de Varianza'"></app-prueba-varianza>
+    <app-prueba-ks [listaNumeros]="arrayData" *ngSwitchCase="'Prueba KS'"></app-prueba-ks>
+    <app-prueba-chi-cuadrado [listaNumeros]="arrayData" *ngSwitchCase="'Prueba Chi^2'"></app-prueba-chi-cuadrado>
+    <app-prueba-poker [listaNumeros]="arrayData" *ngSwitchCase="'Prueba de Poker'"></app-prueba-poker>
+    <app-prueba-medias [listaNumeros]="arrayData" *ngSwitchDefault></app-prueba-medias>
+  </container-element>
+</ng-container>
+
+
